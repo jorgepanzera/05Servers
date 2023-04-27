@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
+const  Router = require('express')
+const  controller = require ('../controllers/employee.controller.js')
+
+const router = Router();
 
 // Routes here
-// Example:
-// router.get('/posts', posts.list)
+router.get("/employees", controller.getAllEmployees)
+router.post("/employees", controller.createEmployee)
 
 module.exports = router;
