@@ -51,8 +51,8 @@ const createEmployee =  (req, res) => {
     // Agregar al array
     employees.push(req.body)
   
-    // Devolver lista con todos los employees
-    return res.status(201).send("Employee Created")
+    // Devolver employee creado
+    return res.status(201).send(req.body)
 
 }
   

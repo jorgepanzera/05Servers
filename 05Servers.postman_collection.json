@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0b5e10ae-38c0-4892-b310-7eefe7b78094",
+		"_postman_id": "4d30de86-17a9-4fb4-b904-98b384d3cfe4",
 		"name": "05Servers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "12622857"
+		"_exporter_id": "21598378"
 	},
 	"item": [
 		{
@@ -31,7 +31,23 @@
 					"name": "GetEmployeesByPage",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/employees?page=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"employees"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -39,7 +55,18 @@
 					"name": "GetOldestEmployee",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/employees/oldest",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"oldest"
+							]
+						}
 					},
 					"response": []
 				},
@@ -47,7 +74,23 @@
 					"name": "GetEmployeesWithUserPrivilege",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/employees?user=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"employees"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "true"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -82,7 +125,23 @@
 					"name": "GetEmployeesByBadges",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/employees?badges=blue",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"employees"
+							],
+							"query": [
+								{
+									"key": "badges",
+									"value": "blue"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -90,7 +149,18 @@
 					"name": "GetEmployeesByName",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/employees/Sue",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"employees",
+								"Sue"
+							]
+						}
 					},
 					"response": []
 				}
