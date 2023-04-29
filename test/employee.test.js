@@ -33,7 +33,7 @@ describe("GET /employees/oldest", () => {
   it("responds with the oldest employee", async () => {
     const response = await request(app).get("/api/employees/oldest");
     expect(response.status).toBe(200);
-    expect(response.body.length).toBe(1);
+    expect(response.body.age).toBe(43);
   });
 
 });
@@ -70,9 +70,9 @@ describe("POST /api/employees", () => {
 describe("GET /api/employees/NAME", () => {
   it("responds with the employee object if exists", async () => {
     const name = "Sue"; // replace with an existing employee name in your dataset
-    const response = await request(app).get(`/api/employees/Sue`);
+    const response = await request(app).get(`/api/employees/${name}`);
     expect(response.status).toBe(200);
-    expect(response.body.name).toBe(name);
+    expect(response.body).toEqual(expect.arrayContaining([expect.objectContaining({ name: name })]));
   });
 
   it("responds with 404 if employee does not exist", async () => {
