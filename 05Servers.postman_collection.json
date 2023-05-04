@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4d30de86-17a9-4fb4-b904-98b384d3cfe4",
+		"_postman_id": "0b5e10ae-38c0-4892-b310-7eefe7b78094",
 		"name": "05Servers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21598378"
+		"_exporter_id": "12622857"
 	},
 	"item": [
 		{
@@ -74,23 +74,7 @@
 					"name": "GetEmployeesWithUserPrivilege",
 					"request": {
 						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees?user=true",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees"
-							],
-							"query": [
-								{
-									"key": "user",
-									"value": "true"
-								}
-							]
-						}
+						"header": []
 					},
 					"response": []
 				},
@@ -151,14 +135,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/employees/Sue",
+							"raw": "{{url}}/api/employees/peoe",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"employees",
-								"Sue"
+								"peoe"
 							]
 						}
 					},
