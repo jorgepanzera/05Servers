@@ -1,12 +1,13 @@
 const  Router = require('express')
-const  controller = require ('../controllers/employee.controller.js')
+const  controller = require('../controllers/posts.controller.js')
 
 const router = Router();
 
 // Routes here
-router.get("/employees", controller.getEmployees)
-router.get("/employees/oldest", controller.getOldestEmployee)
-router.get("/employees/:name", controller.getEmployeesByName)
-router.post("/employees", controller.createEmployee)
+router.get("/posts", controller.getPosts)
+//router.get("/posts/:id", controller.getEmployeesByName)
+router.post("/posts", controller.createPost)
+//router.patch("/posts/:id", controller.createEmployee)
+//router.delete("/posts/:id", controller.createEmployee)
 
 module.exports = router;

@@ -3,12 +3,18 @@ require('dotenv').config();
 const createError = require('http-errors');
 const express = require('express');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+const cors = require('./config/cors.config');
+require('./config/db.config');
+const { startDatabase, stopDatabase } = require("./config/database");
 
 const app = express();
+
 
 /** Middlewares */
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors);
 
 /** Routes */
 const routes = require('./config/routes.config');
@@ -21,7 +27,13 @@ app.use((req, res, next) => {
 })
 
 app.use((error, req, res, next) => {
-  if (!error.status) {
+  if (error instanceof mongoose.Error.ValidationError) {
+    error = createError(400, error);
+  } else if (error instanceof mongoose.Error.CastError && error.message.includes('_id')) {
+    error = createError(404, 'Resource not found');
+  } else if (error.message.includes('E11000')) {
+    error = createError(409, 'Duplicated');
+  } else if (!error.status) {
     error = createError(500, error);
   }
 
@@ -44,8 +56,16 @@ app.use((error, req, res, next) => {
 
 const port = process.env.PORT || 8000;
 
+
+startDatabase().then(() => {
+  app.listen(port, () => {
+    console.log(`Application running at port ${port}`);
+  });
+});
+/*
 app.listen(port, () => {
   console.info(`Application running at port ${port}`)
 });
+*/
 
 module.exports = app
