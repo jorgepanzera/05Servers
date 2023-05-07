@@ -216,6 +216,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "UpdatePost",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"author\": \"updated author 2\",\r\n    \"text\": \"Some Updated text\",\r\n    \"title\": \"updated My Title\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/posts/64580a3543bb4e4764a6be79",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"64580a3543bb4e4764a6be79"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePost",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/64580a3543bb4e4764a6be79\n",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"64580a3543bb4e4764a6be79\n"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
