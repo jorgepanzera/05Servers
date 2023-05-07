@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const cors = require('./config/cors.config');
 require('./config/db.config');
 const { startDatabase, stopDatabase } = require("./config/database");
+const populateDatabase = require("./bin/populate")
 
 const app = express();
 
@@ -57,7 +58,8 @@ app.use((error, req, res, next) => {
 const port = process.env.PORT || 8000;
 
 
-startDatabase().then(() => {
+startDatabase().then(async () => {
+  await populateDatabase(15)
   app.listen(port, () => {
     console.log(`Application running at port ${port}`);
   });
