@@ -160,7 +160,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "  {\r\n    \"name\": \"Jorge\",\r\n    \"age\": 43\r\n  }",
+							"raw": "  {\r\n    \"title\": \"My title\",\r\n    \"author\": \"Jorge\",\r\n    \"text\": \"Some text for the post with more than 5 chars\"\r\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -193,6 +193,25 @@
 							"path": [
 								"api",
 								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPostById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/posts/6457c43b35a8c1ab4aad",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"posts",
+								"6457c43b35a8c1ab4aad"
 							]
 						}
 					},

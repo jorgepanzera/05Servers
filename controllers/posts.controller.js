@@ -3,7 +3,6 @@ const Post = require("../models/post.model");
 
 // Get all posts
 const getPosts = async (req, res) => {
-  console.log(Post);
   const posts = await Post.find().lean();
   return res.json(posts);
 };
@@ -13,7 +12,6 @@ const createPost = async (req, res, next) => {
   try {
     // Extraer datos del body
     const postData = req.body;
-    console.log(postData);
 
     // Guardar en BD
     const post = new Post(postData);
@@ -28,22 +26,57 @@ const createPost = async (req, res, next) => {
 };
 
 // Get a single post by ID
-async function getPostById(postId) {
-  const post = await findById(postId).lean();
-  return post;
+const getPostById = async (req, res, next) => {
+
+  try {
+  const postId = req.params.id || ""
+
+  const post = await Post.findById(postId).lean();
+
+  return res.json(post);
+ } catch (error) {
+  // Pass the error to the next middleware
+  next(error);
+}
+  
 }
 
 // Update a post by ID
-async function updatePost(postId, updateData) {
-  const updatedPost = await findByIdAndUpdate(postId, updateData, {
+const updatePost = async (req, res, next) => {
+
+  try {
+  const postId = req.params.id || ""
+  const updateData = req.body;
+
+  const updatedPost = await Post.findByIdAndUpdate(postId, updateData, {
     new: true,
-  });
-  return updatedPost;
+    });
+
+  return res.json(updatedPost);
+  } catch (error) {
+    // Pass the error to the next middleware
+    next(error);
+  }
+
 }
 
 // Delete a post by ID
-async function deletePost(postId) {
-  await findByIdAndRemove(postId);
+const deletePost = async (req, res, next) => {
+
+  try {
+    const postId = req.params.id || ""
+  
+    await Post.findByIdAndRemove(postId);
+
+    return res.status(204);
+
+    } catch (error) {
+      // Pass the error to the next middleware
+      next(error);
+    }
+  
+
+  
 }
 
 module.exports = {

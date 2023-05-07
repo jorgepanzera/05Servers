@@ -5,9 +5,9 @@ const router = Router();
 
 // Routes here
 router.get("/posts", controller.getPosts)
-//router.get("/posts/:id", controller.getEmployeesByName)
+router.get("/posts/:id", controller.getPostById)
 router.post("/posts", controller.createPost)
-//router.patch("/posts/:id", controller.createEmployee)
-//router.delete("/posts/:id", controller.createEmployee)
+router.patch("/posts/:id", controller.updatePost)
+router.delete("/posts/:id", controller.deletePost)
 
 module.exports = router;
