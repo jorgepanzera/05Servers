@@ -7,150 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "employees",
-			"item": [
-				{
-					"name": "GetAllEmployees",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetEmployeesByPage",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees?page=2",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "2"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetOldestEmployee",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees/oldest",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees",
-								"oldest"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetEmployeesWithUserPrivilege",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
-					"name": "CreateEmployee",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "  {\r\n    \"name\": \"Jorge\",\r\n    \"age\": 43,\r\n    \"phone\": {\r\n      \"personal\": \"887-123-123\",\r\n      \"work\": \"558-456-456\",\r\n      \"ext\": \"5447\"\r\n    },\r\n    \"privileges\": \"user\",\r\n    \"favorites\": {\r\n      \"food\": \"hamburguer\",\r\n      \"artist\": \"The Cure\"\r\n    },\r\n    \"finished\": [\r\n      1,\r\n      2\r\n    ],\r\n    \"badges\": [\r\n      \"yellow\",\r\n      \"blue\"\r\n    ],\r\n    \"points\": [\r\n      {\r\n        \"points\": 82,\r\n        \"bonus\": 8\r\n      },\r\n      {\r\n        \"points\": 47,\r\n        \"bonus\": 7\r\n      }\r\n    ]\r\n  }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/api/employees",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetEmployeesByBadges",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees?badges=blue",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees"
-							],
-							"query": [
-								{
-									"key": "badges",
-									"value": "blue"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetEmployeesByName",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/api/employees/peoe",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"api",
-								"employees",
-								"peoe"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Posts",
 			"item": [
 				{
@@ -204,14 +60,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/api/posts/6457c43b35a8c1ab4aad",
+							"raw": "{{url}}/api/posts/645d7f023e2bc15d7eab5f49",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"posts",
-								"6457c43b35a8c1ab4aad"
+								"645d7f023e2bc15d7eab5f49"
 							]
 						}
 					},

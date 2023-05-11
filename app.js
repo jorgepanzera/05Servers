@@ -5,7 +5,6 @@ const express = require('express');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('./config/cors.config');
-require('./config/db.config');
 const { startDatabase, stopDatabase } = require("./config/database");
 const populateDatabase = require("./bin/populate")
 
