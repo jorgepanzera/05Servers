@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require("bcrypt")
 
 const userSchema = new Schema({
-  name: {type: String, required: true  },
-  email: {type: String, required: true, unique: true,
+  name: { type: String, required: true },
+  email: {
+    type: String, required: true, unique: true,
     validate: {
       validator: (value) => {
         // Use a regular expression to validate email format
@@ -13,11 +15,20 @@ const userSchema = new Schema({
       message: 'Invalid email format',
     },
   },
-  password: {type: String, required: true },
-  bio: {type: String },
-  active: {type: Boolean, default: false },
+  password: { type: String, required: true },
+  bio: { type: String },
+  active: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }
+},
+  {
+    toJSON: {
+      transform: function (doc, ret) {
+        // Exclude password and __v fields from the JSON representation
+        delete ret.password;
+        delete ret.__v;
+      }
+    }
 });
 
 // Use pre-save middleware to hash the password before saving
@@ -28,11 +39,11 @@ userSchema.pre('save', async function (next) {
   }
 
   try {
-    // Generate a salt for password hashing
+    // Salto para password hashing
     const salt = await bcrypt.genSalt(10);
     // Hash the password with the generated salt
     const hashedPassword = await bcrypt.hash(user.password, salt);
-    // Replace the plain password with the hashed password
+    // Me quedo con la password hasheada
     user.password = hashedPassword;
     return next();
   } catch (error) {
@@ -51,4 +62,4 @@ userSchema.methods.comparePassword = async function (password) {
 
 const User = mongoose.model('User', userSchema);
 
-export default User;
+module.exports = User

@@ -40,7 +40,13 @@
 					"name": "GetAllPosts",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9yZ2UiLCJpYXQiOjE2ODM5MzcwNDMsImV4cCI6MTY4NzUzNzA0M30.hWi9qH-5RhuNhWiAZiGmISsEqw3T2xLZ3KyGhvsscU4",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "{{url}}/api/posts",
 							"host": [
@@ -58,16 +64,28 @@
 					"name": "GetPostById",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9yZ2UiLCJpYXQiOjE2ODM5MzcwNDMsImV4cCI6MTY4NzUzNzA0M30.hWi9qH-5RhuNhWiAZiGmISsEqw3T2xLZ3KyGhvsscU4",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{url}}/api/posts/645d7f023e2bc15d7eab5f49",
+							"raw": "{{url}}/api/posts/645ed7065dcbd59383870b64?",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"posts",
-								"645d7f023e2bc15d7eab5f49"
+								"645ed7065dcbd59383870b64"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
 							]
 						}
 					},
@@ -88,10 +106,16 @@
 					],
 					"request": {
 						"method": "PATCH",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9yZ2UiLCJpYXQiOjE2ODM5MzcwNDMsImV4cCI6MTY4NzUzNzA0M30.hWi9qH-5RhuNhWiAZiGmISsEqw3T2xLZ3KyGhvsscU4",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "  {\r\n    \"author\": \"updated author 2\",\r\n    \"text\": \"Some Updated text\",\r\n    \"title\": \"updated My Title\"\r\n  }",
+							"raw": "  {\r\n    \"author\": \"Michael Jordan\",\r\n    \"text\": \"Some Updated text\",\r\n    \"title\": \"updated My Title\"\r\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,14 +123,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/api/posts/64580a3543bb4e4764a6be79",
+							"raw": "{{url}}/api/posts/645ed7065dcbd59383870b64",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"posts",
-								"64580a3543bb4e4764a6be79"
+								"645ed7065dcbd59383870b64"
 							]
 						}
 					},
@@ -116,16 +140,81 @@
 					"name": "DeletePost",
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9yZ2UiLCJpYXQiOjE2ODM5MzcwNDMsImV4cCI6MTY4NzUzNzA0M30.hWi9qH-5RhuNhWiAZiGmISsEqw3T2xLZ3KyGhvsscU4",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{url}}/api/posts/64580a3543bb4e4764a6be79\n",
+							"raw": "{{url}}/api/posts/645ed7065dcbd59383870b64",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
 								"posts",
-								"64580a3543bb4e4764a6be79\n"
+								"645ed7065dcbd59383870b64"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Jorge\",\r\n    \"password\":\"MyNewPassword\",\r\n    \"email\": \"pepe@pepe.com\",\r\n    \"bio\": \"my bio\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"pepe@pepe.com\",\r\n    \"password\": \"MyNewPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"login"
 							]
 						}
 					},

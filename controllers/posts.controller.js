@@ -1,5 +1,3 @@
-//import Post, { find, findById, findByIdAndUpdate, findByIdAndRemove } from '../models/post.model';
-const { CommentsController } = require("moongose/controller");
 const Post = require("../models/post.model");
 
 // Get all posts
