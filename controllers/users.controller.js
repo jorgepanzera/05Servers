@@ -26,14 +26,14 @@ const login = async (req, res, next) => {
 
     try {
 
-    // Buscar user
-        const user = await User.findOne({ email });
+    // Buscar user y que este activo, sino no puede loguearse
+        const user = await User.findOne({ email, active:true });
         
         console.log(user)
 
     // Si no existe, error 401
     if (!user) {
-      return res.status(401).json({ message: 'Invalid credentials' });
+      return res.status(401).json({ message: 'Invalid credentials or user not active' });
     }
 
     // Comparar password
@@ -55,6 +55,26 @@ const login = async (req, res, next) => {
     }
   
 
-  }
+}
+  
+const validate = async (req, res, next) => {
+  try {
+    const userId = req.params.id || "";
+    const updateData = { active:true, updatedAt: new Date() };
 
-module.exports = {createUser, login}
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+    });
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    return res.json(updatedUser);
+  } catch (error) {
+    // Pass the error to the next middleware
+    next(error);
+  }
+}
+
+module.exports = {createUser, login, validate}

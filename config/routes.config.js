@@ -14,5 +14,7 @@ router.delete("/posts/:id", authenticateJWT, postController.deletePost)
 
 router.post("/users", userController.createUser)
 router.post("/login",userController.login)
+router.get("/users/validate/:id", userController.validate)
+
 
 module.exports = router;

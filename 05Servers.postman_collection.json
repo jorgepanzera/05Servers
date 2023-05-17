@@ -219,6 +219,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "ValidateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/users/validate/6465584472a6f70a0a3f1f09",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"validate",
+								"6465584472a6f70a0a3f1f09"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
